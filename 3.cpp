@@ -17,8 +17,10 @@ void table(string str)
     for (int i = 0; i < n; i++)
     {
         if (proof[i] == false)
+        {
             continue;
-            
+        }
+
         int count = 1;
         for (int j = i + 1; j < n; j++)
         {
