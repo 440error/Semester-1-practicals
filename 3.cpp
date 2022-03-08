@@ -4,28 +4,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string table(string str)
+void table(string str)
 {
     int n = str.size();
 
-    bool check[n];
+    bool proof[n];
     for (int i = 0; i < n; i++)
     {
-        check[i] = true;
+        proof[i] = true;
     }
 
     for (int i = 0; i < n; i++)
     {
-        if (check[i] == false)
+        if (proof[i] == false)
             continue;
-
-                int count = 1;
+            
+        int count = 1;
         for (int j = i + 1; j < n; j++)
         {
             if (str[i] == str[j])
             {
                 count++;
-                check[j] = false;
+                proof[j] = false;
             }
         }
         cout << "No of occurences of " << str[i] << "=" << count << endl;

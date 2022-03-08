@@ -15,29 +15,34 @@ void printArr(int arr[], int size)
 int findDuplicate(int arr[], int size)
 {
     int i, j;
-    int store[3] = {};
-    cout << " Repeating elements are ";
-    for (i = 0; i < size - 1; i++)
+
+    for (i = 0; i <= size - 1; i++)
     {
         for (j = i + 1; j < size; j++)
         {
             if (arr[i] == arr[j])
-                cout << arr[i] << " ";
+            {
+                for (int k = j; k < size; k++)
+                {
+                    arr[k] = arr[k + 1];
+                }
+                size--;
+            }
         }
     }
+    printArr(arr, size);
     cout << endl;
 }
+
 
 int main()
 {
     // input array contains `n` numbers between 1 and `n-1` with one duplicate
-    int arr[] = {1, 2, 3, 4, 5, 6, 6, 2, 5};
+    int arr[] = {1, 2, 3, 4, 5, 6, 6, 2, 5,78};
 
     int size = sizeof(arr) / sizeof(arr[0]);
-    // here u can also give direct size in the array itself
-    // i.e --->  int arr[5]={1,2,3,2,4}
-    // and then function call as findDuplicate(arr,5)
-
+   
+    printArr(arr, size);
     findDuplicate(arr, size);
 
     return 0;
