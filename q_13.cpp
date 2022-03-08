@@ -14,7 +14,7 @@ public:
 int main()
 {
     ofstream f2;
-    f2.open("Question_13_output.txt");
+    f2.open("q_13output.txt");
 
     for (int i = 0; i < 2; i++)
     {

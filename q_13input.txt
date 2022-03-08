@@ -1,5 +1,0 @@
-1 Ayush    10  1  95
-2 Prakhar  12  1  07
-3 Unknown  10  2  99
-4 MSD      13  4  97
-5 Messi    13  4  77
