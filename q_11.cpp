@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -12,14 +12,19 @@ int main()
     cin >> q;
     float c;
 
-    if (q == 0)
+    try
     {
-        cout << "divisor cant be 0" << endl;
-        return (-1);
+        if (q == 0)
+        {
+            throw q;
+        }
+      
+        cout << "Result of p/q is : " << p/q <<endl;
     }
 
-    else
+    catch (float x)
     {
-        cout <<"Answer is: " << p/q <<endl;
+        cout << "The divisor can't be zero !!" << endl;
+        exit(-1);
     }
 }
