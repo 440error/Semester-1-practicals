@@ -10,7 +10,7 @@ int main()
     ofstream f2;
     f2.open("14output.txt");
 
-    while (f1.eof()==0)
+    while (f1.eof() == 0)
     {
         getline(f1, str);
 
@@ -20,8 +20,10 @@ int main()
             {
                 continue;
             }
-
-            f2 << str[i];
+            else
+            {
+                f2 << str[i];
+            }
         }
 
         f2 << endl;
