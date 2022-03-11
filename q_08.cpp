@@ -12,6 +12,7 @@ public:
         {
             for (int j = 0; j < i; j++)
             {
+                if(i<j)
                 swap(matrix[i][j], matrix[j][i]);
             }
         }
