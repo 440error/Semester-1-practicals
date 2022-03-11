@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Triangle
@@ -16,37 +16,27 @@ public:
         this->b = b;
         this->c = c;
     }
-    
     Triangle(float b, float h)
     {
         this->b = b;
         this->h = h;
     }
 
-    float area()
-    {
-        return area(this->a, this->b, this->c);
-    }
-
     float area(float a, float b, float c)
     {
         float p = (a + b + c) / 2;
-        return sqrt(p * (p - a) * (p - b) * (p - c));
+        return sqrt(p * (p - a) * (p - b) * (p - c)); // heron's formula
     }
 
     // overloaded functions
     float area(float b, float h)
     {
-        return (b + h) / 2;
+        return (b * h) / 2;
     }
-    // Overload assignment operator
-    Triangle &operator=(const Triangle &triangle)
+
+    float area(float s)
     {
-        // do the copy
-        this->a = triangle.a;
-        this->b = triangle.b;
-        this->c = triangle.c;
-        return *this;
+        return ((sqrt(3)) * s * s) / 4;
     }
 
     // equality operator.
@@ -58,21 +48,72 @@ public:
 
 int main()
 {
-    Triangle t1(18, 30, 24);
-    cout << "Area of the tringle with sides : " << t1.area(18, 30, 24) << "\n";
+    Triangle obj;
+    float a, b, c;
+    char x;
+    cout << "Calculate area of a triangle \n a. Using base and height \n b. Using sides of triangle \n c. Equilateral Triangle \n\n";
+    cin >> x;
 
-    Triangle t2;
-    cout << "Area of the tringle with base and height : " << t2.area(24, 18) << "\n";
-    ;
+    if (x == 'a')
+    {
+        cout << "Enter the base and height of triangle \n";
+        cin >> a >> b;
+        cout << obj.area(a, b);
+    }
 
-    Triangle tCopy = t1;
+    else if (x == 'b')
+    {
+        cout << "Enter the sides of triangle \n";
+        cin >> a >> b >> c;
+        cout << obj.area(a, b, c);
+    }
 
-    cout << "Area of the copy tringle " << tCopy.area() << "\n";
+    else if (x == 'c')
+    {
+        cout << "Enter the side of triangle \n";
+        cin >> a;
+        cout << obj.area(a);
+    }
 
-    if (t1 == tCopy)
+    else
+    {
+        cout << "Invalid option \n";
+    }
+
+    cout << "\n\n";
+
+    float m, n, o;
+    cout << "Check equality of two triangles. \n Enter the sides of first triangle: \n";
+    cin >> m >> n >> o;
+
+    int arr2[] = {m, n, o};
+    int z = sizeof(arr2) / sizeof(arr2[0]);
+
+    sort(arr2, arr2 + z);
+    m = arr2[1];
+    n = arr2[2];
+    o = arr2[0];
+
+    Triangle t1(m, n, o);
+
+    cout << "Enter the sides of second triangle: \n";
+    cin >> m >> n >> o;
+
+    int arr[] = {m, n, o};
+    int y = sizeof(arr) / sizeof(arr[0]);
+
+    sort(arr, arr + y);
+    m = arr[1];
+    n = arr[2];
+    o = arr[0];
+
+    Triangle t2(m, n, o);
+
+    if (t1 == t2)
     {
         cout << "The triangles are equal.\n";
     }
+
     else
     {
         cout << "The triangles are not equal.\n";
